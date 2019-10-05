@@ -5,6 +5,10 @@ a {
   color: #0366d6;
 }
 
+:root {
+  --line: rgba(0, 0, 0, 0.12);
+}
+
 code {
   color: #e01a76;
 }
@@ -13,4 +17,13 @@ code {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }

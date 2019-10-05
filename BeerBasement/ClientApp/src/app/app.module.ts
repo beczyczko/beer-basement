@@ -4,6 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
@@ -14,27 +20,33 @@ import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavMenuComponent,
-    HomeComponent,
-    CounterComponent,
-    FetchDataComponent
-  ],
-  imports: [
-    BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
-    HttpClientModule,
-    FormsModule,
-    ApiAuthorizationModule,
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
-    ])
-  ],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        NavMenuComponent,
+        HomeComponent,
+        CounterComponent,
+        FetchDataComponent
+    ],
+    imports: [
+        BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+        HttpClientModule,
+        FormsModule,
+        ApiAuthorizationModule,
+        RouterModule.forRoot([
+            { path: '', component: HomeComponent, pathMatch: 'full' },
+            { path: 'counter', component: CounterComponent },
+            { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
+        ]),
+        BrowserAnimationsModule,
+        MatButtonModule,
+        MatIconModule,
+        MatListModule,
+        MatSidenavModule,
+        MatToolbarModule,
+    ],
+    providers: [
+        { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
