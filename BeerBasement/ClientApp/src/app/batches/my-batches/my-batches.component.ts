@@ -11,5 +11,4 @@ export class MyBatchesComponent implements OnInit {
 
     ngOnInit() {
     }
-
 }
