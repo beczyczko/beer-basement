@@ -1,6 +1,8 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'">
-    <h2 class="app-name">Beer Basement</h2>
+    <a routerLink="." class="app-name">
+      <h2>Beer Basement</h2>
+    </a>
     <mat-nav-list>
       <a mat-list-item routerLink=".">Home</a>
       <a mat-list-item routerLink="counter">Counter</a>
